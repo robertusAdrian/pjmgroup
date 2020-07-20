@@ -12,6 +12,12 @@ class User extends BaseController
     }
     public function index()
     {
+        if (session()->get('username') == '') {
+            session()->setFlashdata('gagal', 'Anda belum login');
+            return  redirect()->to('./');
+        }
+
+
         return view('user/index');
     }
 }

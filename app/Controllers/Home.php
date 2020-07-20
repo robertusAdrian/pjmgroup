@@ -12,6 +12,7 @@ class Home extends BaseController
 	}
 	public function index()
 	{
+
 		return view('login');
 	}
 
@@ -58,6 +59,7 @@ class Home extends BaseController
 			'password' => $this->request->getVar('password'),
 		]);
 
+		session()->setFlashdata('berhasil', 'Data Berhasil ditambahkan.');
 		return redirect()->to('/');
 	}
 
@@ -67,17 +69,24 @@ class Home extends BaseController
 		$password = $this->request->getVar('password');
 
 		$data = [
-			$this->M_user->cek_login($username, $password),
+			'item' => $this->M_user->cek_login($username, $password),
 		];
 
-		dd($data['username']);
-		// if (($data['item'] === $username) && ($data['item'] === $password)) {
+		// dd($data['item']['username']);
+		if ((isset($data['item']['username']) == $username) && (isset($data['item']['password']) == $password)) {
+			session()->set('username', $data['item']['username']);
+			return  redirect()->to('./user');
+		} else {
+			session()->setFlashdata('gagal', 'username atau password salah');
+			return  redirect()->to('./');
+		}
+	}
 
-		// 	return  redirect()->to('./user/index');
-		// } else {
-		// 	// session()->setFlashdata('gagal', 'username atau password salah');
-		// 	return  redirect()->to('./');
-		// }
+	public function logout()
+	{
+		$session = \Config\Services::session();
+		$session->destroy();
+		return  redirect()->to('./');
 	}
 	//--------------------------------------------------------------------
 

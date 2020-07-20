@@ -13,6 +13,19 @@
 <body>
     <form action="/home/cek_login" method="post" class="login-form">
         <h1>Sign In</h1>
+        <?php if (session()->getFlashdata('gagal')) : ?>
+            <div class="alert ">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?= session()->getFlashdata('gagal'); ?>
+            </div>
+        <?php endif ?>
+        <?php if (session()->getFlashdata('berhasil')) : ?>
+            <div class="alert-success">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <?= session()->getFlashdata('berhasil'); ?>
+            </div>
+        <?php endif ?>
+
         <div class="textForm">
             <input type="text" id="username" name="username" required>
             <div class="placeholder">Username</div>
