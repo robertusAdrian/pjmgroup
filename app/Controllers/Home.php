@@ -68,6 +68,7 @@ class Home extends BaseController
 		$username = $this->request->getVar('username');
 		$password = $this->request->getVar('password');
 
+
 		$data = [
 			'item' => $this->M_user->cek_login($username, $password),
 		];
@@ -75,6 +76,7 @@ class Home extends BaseController
 		// dd($data['item']['username']);
 		if ((isset($data['item']['username']) == $username) && (isset($data['item']['password']) == $password)) {
 			session()->set('username', $data['item']['username']);
+			session()->set('level', $data['item']['level']);
 			return  redirect()->to('./user');
 		} else {
 			session()->setFlashdata('gagal', 'username atau password salah');

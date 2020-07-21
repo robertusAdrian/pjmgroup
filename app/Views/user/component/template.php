@@ -15,6 +15,7 @@
     <link href="/asset-crud/css/style.css" rel="stylesheet">
 
     <link href="/asset-crud/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- favicons
 	================================================== -->
@@ -33,7 +34,7 @@
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to User.</span>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to <?= session()->get('username') ?></span>
                         </li>
 
                         <li class="dropdown">

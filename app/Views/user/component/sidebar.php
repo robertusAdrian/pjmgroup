@@ -7,22 +7,30 @@
                                 <img alt="image" class="img-circle" src="asset-crud/img/profile_small.jpg" />
                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">User</strong>
-                                    </span> <span class="text-muted text-xs block">User <b class="caret"></b></span> </span> </a>
+                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">
+                                            <?= session()->get('username') ?>/
+                                            <?php if (session()->get('level') == 1) {
+                                                echo 'Admin';
+                                            } else {
+                                                echo 'User';
+                                            } ?>
+                                        </strong>
+                                    </span> <span class="text-muted text-xs block"><?= session()->get('username') ?><b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="">Profile</a></li>
-                                <li><a href="logout.php">Logout</a></li>
+                                <li><a href="./personal">Profile</a></li>
+                                <li><a href="./logout">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
-                            Kramed
                         </div>
                     </li>
-                    <li class="active">
-                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
-                    </li>
+
                     <li>
-                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Personal</span></a>
+                        <a href="/user"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+                    </li>
+
+                    <li>
+                        <a href="/personal"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Personal</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Chatting</span></a>

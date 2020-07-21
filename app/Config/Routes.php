@@ -34,7 +34,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/register', 'Home::register');
 $routes->get('/logout', 'Home::logout');
+$routes->get('/user', 'User::index');
+$routes->get('/personal', 'User::personal');
 
+$routes->delete('/user/(:num)', 'User::delete/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

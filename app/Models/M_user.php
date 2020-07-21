@@ -24,4 +24,18 @@ class M_user extends Model
     {
         return $this->findAll();
     }
+
+    public function search($keyword)
+    {
+        $builder = $this->table('user');
+        $builder->like('username', $keyword)->orLike('email', $keyword);
+        return $builder;
+    }
+
+    public function count()
+    {
+        $builder = $this->table('user');
+        $builder = $this->countAll();
+        return $builder;
+    }
 }
