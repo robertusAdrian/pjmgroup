@@ -20,4 +20,8 @@ class M_user extends Model
             'password' => $password,
         ])->first();
     }
+    public function get_item()
+    {
+        return $this->findAll();
+    }
 }

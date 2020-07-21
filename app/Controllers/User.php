@@ -17,7 +17,9 @@ class User extends BaseController
             return  redirect()->to('./');
         }
 
-
-        return view('user/index');
+        $data = [
+            'item' => $this->M_user->get_item(),
+        ];
+        return view('user/index', $data);
     }
 }
