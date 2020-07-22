@@ -56,42 +56,50 @@
         </div>
 
     </div>
-<?php endif ?>
-<!----------------------------------- CHATTING PANEL ---------------------------------------------->
-<div class="col-lg-8">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>Chatting With Admin</h5>
-        </div>
-        <div class="ibox-content inspinia-timeline">
-
-            <div class="timeline-item">
-                <div class="row">
-                    <div class="col-xs-3 date">
-                        <i class="fa fa-briefcase"></i>
-                        6:00 am
-                        <br />
-                        <small class="text-navy">2 hour ago</small>
-                    </div>
-                    <div class="col-xs-7 content no-top-border">
-                        <p class="m-b-xs"><strong>Meeting</strong></p>
-                        <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products. Below please find the current status of the
-                            sale.</p>
-                        <p><span data-diameter="40" class="updating-chart">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,4,7,3,2,9,8,7,4,5,1,2,9,5,4,7,2,7,7,3,5,2</span></p>
-                    </div>
+    <div class="col-lg-8">
+    <?php endif ?>
+    <!----------------------------------- CHATTING PANEL ---------------------------------------------->
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>History ALL Member Chatting With Admin</h5>
+            </div>
+            <?php if (session()->getFlashdata('berhasil')) : ?>
+                <div class="alert alert-success">
+                    <?= session()->getFlashdata('berhasil'); ?>
                 </div>
+            <?php endif ?>
+            <div class="ibox-content inspinia-timeline">
+                <?php foreach ($chatting as $row) : ?>
+                    <div class="timeline-item">
+                        <div class="row">
+                            <div class="col-xs-3 date">
+                                <?= $row['created_at']; ?>
+                                <i class="fa fa-briefcase"></i>
+                                <br />
+                            </div>
+                            <div class="col-xs-7 content no-top-border">
+                                <p class="m-b-xs"><strong><?= $row['username']; ?></strong></p>
+                                <p><?= $row['comment']; ?>.</p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <div class="timeline-item">
+            <!-- <div class="timeline-item">
+                <form action="/user/addComment/<?= session()->get('id_user') ?>" method="POST">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="comment">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Go!</button>
+                        </span>
+                    </div>
+                </form>
 
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="input-group"><input type="text" class="form-control"> <span class="input-group-btn"> <button type="button" class="btn btn-primary">Go!
-                    </button> </span></div>
-        </div>
+            </div> -->
 
+        </div>
     </div>
-</div>
-</div>
+    </div>
 
-<?= $this->endSection(); ?>
+    <?= $this->endSection(); ?>

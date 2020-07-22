@@ -75,8 +75,13 @@ class Home extends BaseController
 
 		// dd($data['item']['username']);
 		if ((isset($data['item']['username']) == $username) && (isset($data['item']['password']) == $password)) {
+			session()->set('id_user', $data['item']['id_user']);
 			session()->set('username', $data['item']['username']);
+			session()->set('email', $data['item']['email']);
+			session()->set('telepon', $data['item']['telepon']);
+			session()->set('password', $data['item']['password']);
 			session()->set('level', $data['item']['level']);
+
 			return  redirect()->to('./user');
 		} else {
 			session()->setFlashdata('gagal', 'username atau password salah');

@@ -25,6 +25,10 @@ class M_user extends Model
         return $this->findAll();
     }
 
+    public function detail_item($id)
+    {
+        return $this->where(['id_user' => $id])->first();
+    }
     public function search($keyword)
     {
         $builder = $this->table('user');

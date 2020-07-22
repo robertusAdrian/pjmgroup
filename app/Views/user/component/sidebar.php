@@ -30,10 +30,10 @@
                     </li>
 
                     <li>
-                        <a href="/personal"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Personal</span></a>
+                        <a href="/personal/<?= session()->get('id_user') ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Personal</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Chatting</span></a>
+                        <a href=/chatting/<?= session()->get('id_user') ?>> <i class="fa fa-edit"></i> <span class="nav-label">Chatting</span></a>
                     </li>
                 </ul>
             </div>

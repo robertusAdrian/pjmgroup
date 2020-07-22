@@ -17,34 +17,34 @@
             </div>
 
             <div class="ibox-content">
-                <form action="/user/edit" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <form action="/user/update/<?= $item['id_user']; ?>" method=" post" class="form-horizontal" enctype="multipart/form-data">
                     <!-- pemalsuan dari halaman lain (form hanya bisa diakses oleh halaman ini ) -->
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
-                            <input type="text" id="name" name="name" class="form-control" required="" autofocus>
+                            <input type="text" id="username" name="username" class="form-control" value="<?= $item['username']; ?>" required="" autofocus>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" id="name" name="name" class="form-control" required="">
+                            <input type="email" id="email" name="email" class="form-control" value="<?= $item['email']; ?>" required="">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Phone</label>
                         <div class="col-sm-10">
-                            <input type="text" id="name" name="name" class="form-control" required="">
+                            <input type="text" id="telepon" name="telepon" class="form-control" value="<?= $item['telepon']; ?>" required="">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" id="name" name="name" class="form-control" required="">
+                            <input type="password" id="password" name="password" class="form-control" value="<?= $item['password']; ?>" required="">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
