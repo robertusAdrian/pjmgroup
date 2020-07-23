@@ -25,7 +25,15 @@ class M_chatting extends Model
     {
         $query = $this->table('tb_chatting')
             ->where('user.id_user', $id)
-            ->join('user', 'user.id_user = tb_chatting.id_user')
+            ->join('user', 'user.id_user = tb_chatting.id_user ')
+            ->get()->getResultArray();
+        return $query;
+    }
+    public function admin_comment($level)
+    {
+        $query = $this->table('tb_chatting')
+            ->where('user.level', $level)
+            ->join('user', 'user.id_user = tb_chatting.id_user ')
             ->get()->getResultArray();
         return $query;
     }

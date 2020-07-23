@@ -74,14 +74,6 @@ class User extends BaseController
     //chatting
     public function addComment($id)
     {
-        // //jika admin
-        // $input = $this->request->getVar('comment');
-
-        // if ($input) {
-        //     $find = $this->M_user->search($input);
-        // } else {
-        //     $find = $this->M_user;
-        // }
 
         //insert chat
         $this->M_chatting->save([
@@ -99,9 +91,23 @@ class User extends BaseController
             session()->setFlashdata('gagal', 'Anda belum login');
             return  redirect()->to('./');
         }
-        $data = [
-            'chatting' => $this->M_chatting->detail_comment($id),
-        ];
+
+        if (session()->get('level') == '2') {
+            $level = '1';
+            $data = [
+                'chatting' => $this->M_chatting->detail_comment($id),
+                'level' => $this->M_chatting->admin_comment($level),
+            ];
+        }
+
+        if (session()->get('level') == '1') {
+            $level = session()->get('level');
+            $data = [
+                'chatting' => $this->M_chatting->detail_comment($id),
+                'level' => $this->M_chatting->admin_comment($level),
+            ];
+        }
         return view('user/chatting', $data);
+        // dd($data);
     }
 }
