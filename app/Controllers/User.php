@@ -74,6 +74,15 @@ class User extends BaseController
     //chatting
     public function addComment($id)
     {
+        // //jika admin
+        // $input = $this->request->getVar('comment');
+
+        // if ($input) {
+        //     $find = $this->M_user->search($input);
+        // } else {
+        //     $find = $this->M_user;
+        // }
+
         //insert chat
         $this->M_chatting->save([
             'comment' => $this->request->getVar('comment'),

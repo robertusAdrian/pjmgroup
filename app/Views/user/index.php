@@ -45,7 +45,7 @@
                                     </form>
                                     <strong><?= $row['username']; ?></strong> <?= $row['email']; ?><br>
                                     <small class="text-muted"><?= $row['created_at']; ?></small>
-
+                                    <a href="/user/chatting/<?= $row['id_user']; ?>" type="submit">Chat Message</a>
                                 </div>
                             </div>
                         </div>
