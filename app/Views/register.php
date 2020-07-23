@@ -14,6 +14,7 @@
     <form action="/home/addUser" method="post" class="login-form">
         <?= csrf_field(); ?>
         <h1>Register Account</h1>
+        <input type="hidden" id="level" name="level" value="2">
         <div class="textForm">
             <input type="text" id="username" name="username" autofocus value="<?= old('username'); ?>">
             <div class="placeholder is-invalid">Username</div>

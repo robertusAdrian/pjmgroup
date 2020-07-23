@@ -11,7 +11,7 @@ class M_user extends Model
 
     protected $useTimestamps = true;
 
-    protected $allowedFields = ['username', 'email', 'telepon', 'password'];
+    protected $allowedFields = ['username', 'email', 'telepon', 'password', 'level'];
 
     public function cek_login($username, $password)
     {

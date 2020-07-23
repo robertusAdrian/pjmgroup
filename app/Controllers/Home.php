@@ -57,6 +57,7 @@ class Home extends BaseController
 			'email' => $this->request->getVar('email'),
 			'telepon' => $this->request->getVar('telepon'),
 			'password' => $this->request->getVar('password'),
+			'level' => $this->request->getVar('level'),
 		]);
 
 		session()->setFlashdata('berhasil', 'Data Berhasil ditambahkan.');
