@@ -66,8 +66,7 @@ class User extends BaseController
 
     public function delete($id)
     {
-        $this->M_user->delete($id);
-        $this->M_chatting->delete($id);
+        $this->M_user->deleteAll($id);
         session()->setFlashdata('delete', 'Data berhasil dihapus.');
         return redirect()->to('/user');
     }

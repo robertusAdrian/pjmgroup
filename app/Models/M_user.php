@@ -42,4 +42,15 @@ class M_user extends Model
         $builder = $this->countAll();
         return $builder;
     }
+
+    public function deleteAll($id)
+    {
+        $query = $this->table('user')
+            ->join('tb_chatting', 'user.id_user = tb_chatting.id_user', 'INNER')
+            ->delete([
+                'user.id_user' => $id,
+                'tb_chatting.id_user' => $id
+            ])->getResultArray();
+        return $query;
+    }
 }
