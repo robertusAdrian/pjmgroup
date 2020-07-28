@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2020 at 09:27 AM
+-- Generation Time: Jul 28, 2020 at 06:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -40,12 +40,8 @@ CREATE TABLE `tb_chatting` (
 --
 
 INSERT INTO `tb_chatting` (`id_chat`, `comment`, `id_user`, `created_at`, `updated_at`) VALUES
-(2, 'Mantap joss', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'FAFWAFWAFAWFWAF WAFWFAWF', 12, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'semoga berhasil', 13, '2020-07-22 11:06:25', '2020-07-22 11:06:25'),
-(5, 'ow sayang sekali coy', 13, '2020-07-22 11:06:46', '2020-07-22 11:06:46'),
-(6, 'mantep jeejeje', 12, '2020-07-22 11:44:50', '2020-07-22 11:44:50'),
-(7, 'terima kasih', 8, '2020-07-23 01:08:27', '2020-07-23 01:08:27');
+(16, 'halo perkenalkan nama saya rian', 21, '2020-07-28 11:02:14', '2020-07-28 11:02:14'),
+(17, 'apa bisa bertanya disini?', 21, '2020-07-28 11:02:36', '2020-07-28 11:02:36');
 
 -- --------------------------------------------------------
 
@@ -69,10 +65,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email`, `telepon`, `password`, `level`, `created_at`, `updated_at`) VALUES
-(8, 'admin', 'robertusadrian@yahoo.com', '087759655777', '123', 1, '2020-07-20 07:55:26', '2020-07-20 07:55:26'),
-(12, 'jayen', 'jayen@gmail.com', '123456', '123', 2, '2020-07-21 06:08:05', '2020-07-21 06:08:05'),
-(13, 'robertus', 'jejen@gmail.com', '12345', '1234', 2, '2020-07-21 06:08:27', '2020-07-22 11:02:14'),
-(19, 'sasuke', 'sasuke@gmail.com', '1234', '1234', 2, '2020-07-23 02:25:25', '2020-07-23 02:25:25');
+(8, 'admin', 'robertusadrian@yahoo.com', '087759655777', '123', 1, '2020-07-20 07:55:26', '2020-07-28 10:53:09'),
+(21, 'rian', 'rian@gmail.com', '123', '123', 2, '2020-07-28 10:55:33', '2020-07-28 10:55:33');
 
 --
 -- Indexes for dumped tables
@@ -98,13 +92,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tb_chatting`
 --
 ALTER TABLE `tb_chatting`
-  MODIFY `id_chat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_chat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

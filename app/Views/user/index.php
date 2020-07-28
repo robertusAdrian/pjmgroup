@@ -69,6 +69,11 @@
                     <?= session()->getFlashdata('berhasil'); ?>
                 </div>
             <?php endif ?>
+            <?php if (session()->getFlashdata('update')) : ?>
+                <div class="alert alert-success">
+                    <?= session()->getFlashdata('update'); ?>
+                </div>
+            <?php endif ?>
             <div class="ibox-content inspinia-timeline">
                 <?php foreach ($chatting as $row) : ?>
                     <div class="timeline-item">

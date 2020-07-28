@@ -58,7 +58,7 @@ class User extends BaseController
             'password' => $this->request->getVar('password'),
         ]);
 
-        // session()->setFlashdata('berhasil', 'Data Berhasil ditambahkan.');
+        session()->setFlashdata('update', 'Data Berhasil diubah.');
         return redirect()->to('/user');
 
         dd($this->request->getVar());
@@ -67,6 +67,7 @@ class User extends BaseController
     public function delete($id)
     {
         $this->M_user->delete($id);
+        $this->M_chatting->delete($id);
         session()->setFlashdata('delete', 'Data berhasil dihapus.');
         return redirect()->to('/user');
     }
@@ -82,7 +83,7 @@ class User extends BaseController
         ]);
 
         session()->setFlashdata('berhasil', 'Data Berhasil ditambahkan.');
-        return redirect()->to('/user');
+        return redirect()->to('/chatting/' . $id);
     }
 
     public function chatting($id)
